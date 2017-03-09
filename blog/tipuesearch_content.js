@@ -1,1 +1,1 @@
-var tipuesearch = {"pages":[{"tags":"misc","title":"About","text":"2016Fall 修課成員網誌","url":"./pages/about/"},{"tags":"作業","title":"w1作業","text":"四連桿繪製 from juu hong cheng on Vimeo . 連桿組合 from juu hong cheng on Vimeo .","url":"./w1zuo-ye.html"}]};
+var tipuesearch = {"pages":[{"title":"About","tags":"misc","url":"./pages/about/","text":"2016Fall 修課成員網誌"},{"title":"w1作業","tags":"作業","url":"./w1zuo-ye.html","text":"四連桿繪製 from juu hong cheng on Vimeo . 連桿組合 from juu hong cheng on Vimeo ."}]};
