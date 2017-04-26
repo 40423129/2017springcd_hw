@@ -1,22 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>2016Fall 電腦輔助設計實習 (虎尾科大MDE)</title><link href="./" rel="alternate"></link><link href="./feeds/all.atom.xml" rel="self"></link><id>./</id><updated>2017-03-11T12:08:00+08:00</updated><entry><title>w3作業</title><link href="./w3zuo-ye.html" rel="alternate"></link><published>2017-03-11T12:08:00+08:00</published><updated>2017-03-11T12:08:00+08:00</updated><author><name>2017springcd_ag5</name></author><id>tag:,2017-03-11:./w3zuo-ye.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>2016Fall 電腦輔助設計實習 (虎尾科大MDE)</title><link href="./" rel="alternate"></link><link href="./feeds/all.atom.xml" rel="self"></link><id>./</id><updated>2017-04-19T12:08:00+08:00</updated><entry><title>協同產品設計實習 期中測驗</title><link href="./xie-tong-chan-pin-she-ji-shi-xi-qi-zhong-ce-yan.html" rel="alternate"></link><published>2017-04-19T12:08:00+08:00</published><updated>2017-04-19T12:08:00+08:00</updated><author><name>40423129</name></author><id>tag:,2017-04-19:./xie-tong-chan-pin-she-ji-shi-xi-qi-zhong-ce-yan.html</id><summary type="html">&lt;p&gt;期中測驗&lt;/p&gt;
 
+
+&lt;h1&gt;2.連桿路徑追蹤&lt;/h1&gt;
+&lt;!-- 導入 brython.js --&gt;
+
+&lt;script type="text/javascript" src="https://cdn.rawgit.com/brython-dev/brython/master/www/src/brython_dist.js"&gt;&lt;/script&gt;
+
+&lt;!-- 啟動 brython() --&gt;
+
+&lt;script&gt;
+window.onload=function(){
+brython(1);
+}
+&lt;/script&gt;
+
+&lt;!-- 以下利用 Brython 程式執行繪圖 --&gt;
+
+&lt;canvas id="fourbar" width="800" height="600"&gt;&lt;/canvas&gt;
+
+&lt;div id="container1"&gt;&lt;/div&gt;
+
+&lt;script type="text/python3"&gt;
+from browser import document as doc
+from browser import html
+import math
+# 準備繪圖畫布
+canvas = doc["fourbar"]
+container1 = doc['container1']
+ctx = canvas.getContext("2d")
+
+fourbar_data = open("./../data/mid-1.csv").read()
+fourbar_list = fourbar_data.splitlines()
+#container1 &lt;= fourbar_list[0]
+# 以下可以利用 ctx 物件進行畫圖
+# 先畫一條直線
+ctx.beginPath()
+# 設定線的寬度為 1 個單位
+ctx.lineWidth = 1
+# 利用 transform 將 y 座標反轉, 且 offset canvas.height
+# (X scale, X skew, Y skew, Y scale, X offset, Y offset)
+# 配合圖形位置進行座標轉換
+ctx.transform(1, 0, 0, -1, canvas.width/2+250, canvas.height/2+100)
+# 畫出 x 與 y 座標線
+# 各座標值放大 8 倍
+ratio = 8
+'''
+ctx.moveTo(0, 0)
+ctx.lineTo(0, 100)
+ctx.moveTo(0, 0)
+ctx.lineTo(100, 0)
+'''
+ctx.moveTo(0, 0)
+ctx.lineTo(-30*ratio, 0)
+start_point = fourbar_list[0].split(",")
+ctx.moveTo(float(start_point[0])*ratio, float(start_point[1])*ratio)
+count = 0
+for data in fourbar_list[1:]:
+    point = data.split(",")
+    #count = count + 1
+    #container1 &lt;= str(count) + ":" + point[0] + "," + point[1]
+    #container1 &lt;= html.BR()
+    ctx.lineTo(float(point[0])*ratio, float(point[1])*ratio)
+# 設定顏色為藍色, 也可以使用 "rgb(0, 0, 255)" 字串設定顏色值
+ctx.strokeStyle = "blue"
+# 實際執行畫線
+ctx.stroke()
+ctx.closePath()
+&lt;/script&gt;
+
+&lt;p&gt;&lt;img src="./../data/mid-1.png"width="800"/&gt;&lt;/p&gt;
+&lt;h1&gt;軌跡追蹤&lt;/h1&gt;
+&lt;iframe src="https://player.vimeo.com/video/214874068" width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;p&gt;&lt;a href="https://vimeo.com/214874068"&gt;虎尾科技大學 四設二甲 40423129 軌跡追蹤&lt;/a&gt; from &lt;a href="https://vimeo.com/user46455588"&gt;juu hong cheng&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;
+&lt;h1&gt;行走機構繪製&lt;/h1&gt;
+&lt;iframe src="https://player.vimeo.com/video/214867810" width="640" height="441" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;p&gt;&lt;a href="https://vimeo.com/214867810"&gt;虎尾科技大學 四設二甲 40423129 walk 繪製&lt;/a&gt; from &lt;a href="https://vimeo.com/user46455588"&gt;juu hong cheng&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;
+&lt;iframe src="https://player.vimeo.com/video/214867728" width="640" height="286" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;p&gt;&lt;a href="https://vimeo.com/214867728"&gt;虎尾科技大學 四設二甲 40423129walk組裝&lt;/a&gt; from &lt;a href="https://vimeo.com/user46455588"&gt;juu hong cheng&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;
+&lt;h1&gt;4.零件展示&lt;/h1&gt;
+&lt;p&gt;&lt;link href="./../viewer/madeleine/src/css/Madeleine.css" rel="stylesheet"&gt;
+&lt;script src="./../viewer/madeleine/src/stats.js"&gt;&lt;/script&gt;
+&lt;script src="./../viewer/madeleine/src/detector.js"&gt;&lt;/script&gt;
+&lt;script src="./../viewer/madeleine/src/three.min.js"&gt;&lt;/script&gt;
+&lt;script src="./../viewer/madeleine/src/Madeleine.js"&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;div id="target" class="madeleine"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+window.onload = function(){
+    var madeleine = new Madeleine({
+      target: 'target', // target div id
+      data: './../data/midexam-w.stl', // data path
+      path: './../viewer/madeleine/src/' // path to source directory from current html file
+    });
+}; 
+&lt;/script&gt;
+
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"
+&gt;&lt;/script&gt;
+
+&lt;script src="https://rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js"
+&gt;&lt;/script&gt;
+
+&lt;div&gt;
+select stl file: &lt;input type="file" id="file" /&gt; or drop stl file
+&lt;/div&gt;
+
+&lt;div id="view"&gt;&lt;/div&gt;</summary><category term="簡報"></category></entry><entry><title>協同產品設計實習 W6作業 四連桿 八連桿模擬 繪製</title><link href="./xie-tong-chan-pin-she-ji-shi-xi-w6zuo-ye-si-lian-gan-ba-lian-gan-mo-ni-hui-zhi.html" rel="alternate"></link><published>2017-03-30T12:08:00+08:00</published><updated>2017-03-30T12:08:00+08:00</updated><author><name>40423129</name></author><id>tag:,2017-03-30:./xie-tong-chan-pin-she-ji-shi-xi-w6zuo-ye-si-lian-gan-ba-lian-gan-mo-ni-hui-zhi.html</id><summary type="html">&lt;p&gt;四連桿 八連桿模擬 繪製&lt;/p&gt;
+
+
+&lt;h1&gt;四連桿模擬&lt;/h1&gt;
+&lt;iframe src="https://player.vimeo.com/video/214868000" width="640" height="344" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;a href="https://vimeo.com/214868000"&gt;虎尾科技大學 四設二甲  40423129 4bar V REP模擬&lt;/a&gt; from &lt;a href="https://vimeo.com/user46455588"&gt;juu hong cheng&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1&gt;八連桿模擬&lt;/h1&gt;
+&lt;iframe src="https://player.vimeo.com/video/214867886" width="640" height="344" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;a href="https://vimeo.com/214867886"&gt;虎尾科技大學 四設二甲  40423129 8bar V REP模擬&lt;/a&gt; from &lt;a href="https://vimeo.com/user46455588"&gt;juu hong cheng&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;</summary><category term="簡報"></category></entry><entry><title>協同產品設計實習 W5單連桿繪製</title><link href="./xie-tong-chan-pin-she-ji-shi-xi-w5dan-lian-gan-hui-zhi.html" rel="alternate"></link><published>2017-03-23T12:08:00+08:00</published><updated>2017-03-23T12:08:00+08:00</updated><author><name>40423129</name></author><id>tag:,2017-03-23:./xie-tong-chan-pin-she-ji-shi-xi-w5dan-lian-gan-hui-zhi.html</id><summary type="html">&lt;p&gt;單連桿繪製&lt;/p&gt;
+
+
+&lt;h1&gt;單連桿繪製&lt;/h1&gt;
+&lt;iframe src="https://player.vimeo.com/video/214867023" width="640" height="392" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;a href="https://vimeo.com/214867023"&gt;虎尾科技大學 四設二甲  40423129 onebar繪製&lt;/a&gt; from &lt;a href="https://vimeo.com/user46455588"&gt;juu hong cheng&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1&gt;單連桿組裝&lt;/h1&gt;
+&lt;iframe src="https://player.vimeo.com/video/214867334" width="640" height="393" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;a href="https://vimeo.com/214867334"&gt;虎尾科技大學 四設二甲  40423129 onebar組裝&lt;/a&gt; from &lt;a href="https://vimeo.com/user46455588"&gt;juu hong cheng&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1&gt;單連桿V-rep模擬&lt;/h1&gt;
+&lt;iframe src="https://player.vimeo.com/video/214868055" width="640" height="344" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;a href="https://vimeo.com/214868055"&gt;虎尾科技大學 四設二甲  40423129 1bar V REP模擬&lt;/a&gt; from &lt;a href="https://vimeo.com/user46455588"&gt;juu hong cheng&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;</summary><category term="簡報"></category></entry><entry><title>協同產品設計實習 W3作業 建立fossil倉儲</title><link href="./xie-tong-chan-pin-she-ji-shi-xi-w3zuo-ye-jian-li-fossilcang-chu.html" rel="alternate"></link><published>2017-03-11T12:08:00+08:00</published><updated>2017-03-11T12:08:00+08:00</updated><author><name>40423129</name></author><id>tag:,2017-03-11:./xie-tong-chan-pin-she-ji-shi-xi-w3zuo-ye-jian-li-fossilcang-chu.html</id><summary type="html">&lt;p&gt;建立fossil倉儲&lt;/p&gt;
+
+
+&lt;h1&gt;建立fossil倉儲&lt;/h1&gt;
 &lt;iframe src="https://player.vimeo.com/video/207989930" width="640" height="344" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
 
-&lt;p&gt;&lt;a href="https://vimeo.com/207989930"&gt;建立fossil倉儲&lt;/a&gt; from &lt;a href="https://vimeo.com/user46455588"&gt;juu hong cheng&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;</summary><category term="簡報"></category></entry><entry><title>w2作業</title><link href="./w2zuo-ye.html" rel="alternate"></link><published>2017-03-08T12:08:00+08:00</published><updated>2017-03-08T12:08:00+08:00</updated><author><name>2017springcd_ag5</name></author><id>tag:,2017-03-08:./w2zuo-ye.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;&lt;p&gt;&lt;a href="https://vimeo.com/207989930"&gt;虎尾科大 四設二甲 40423129 建立fossil倉儲&lt;/a&gt; from &lt;a href="https://vimeo.com/user46455588"&gt;juu hong cheng&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;</summary><category term="簡報"></category></entry><entry><title>協同產品設計實習 W2作業 STUNNEL 設定 連桿組合</title><link href="./xie-tong-chan-pin-she-ji-shi-xi-w2zuo-ye-stunnel-she-ding-lian-gan-zu-he.html" rel="alternate"></link><published>2017-03-08T12:08:00+08:00</published><updated>2017-03-08T12:08:00+08:00</updated><author><name>40423129</name></author><id>tag:,2017-03-08:./xie-tong-chan-pin-she-ji-shi-xi-w2zuo-ye-stunnel-she-ding-lian-gan-zu-he.html</id><summary type="html">&lt;p&gt;STUNNEL 設定  連桿組合&lt;/p&gt;
+
 
 &lt;h1&gt;更改stunnel的IP設定&lt;/h1&gt;
 &lt;iframe src="https://player.vimeo.com/video/207989092" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
 
-&lt;p&gt;&lt;a href="https://vimeo.com/207989092"&gt;更改stunnel的IP設定&lt;/a&gt; from &lt;a href="https://vimeo.com/user46455588"&gt;juu hong cheng&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
-
+&lt;p&gt;&lt;p&gt;&lt;a href="https://vimeo.com/207989092"&gt;虎尾科大 四設二甲 40423129 更改stunnel的IP設定&lt;/a&gt; from &lt;a href="https://vimeo.com/user46455588"&gt;juu hong cheng&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;
 &lt;h1&gt;連桿組立&lt;/h1&gt;
 &lt;iframe src="https://player.vimeo.com/video/206681194" width="640" height="326" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
 
-&lt;p&gt;&lt;a href="https://vimeo.com/206681194"&gt;連桿組合&lt;/a&gt; from &lt;a href="https://vimeo.com/user46455588"&gt;juu hong cheng&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;</summary><category term="簡報"></category></entry><entry><title>w1作業</title><link href="./w1zuo-ye.html" rel="alternate"></link><published>2017-03-02T12:08:00+08:00</published><updated>2017-03-02T12:08:00+08:00</updated><author><name>2017springcd_ag5</name></author><id>tag:,2017-03-02:./w1zuo-ye.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;&lt;a href="https://vimeo.com/206681194"&gt;虎尾科大 四設二甲 40423129  連桿組合&lt;/a&gt; from &lt;a href="https://vimeo.com/user46455588"&gt;juu hong cheng&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;</summary><category term="簡報"></category></entry><entry><title>協同產品設計實習 W1作業 連桿繪製</title><link href="./xie-tong-chan-pin-she-ji-shi-xi-w1zuo-ye-lian-gan-hui-zhi.html" rel="alternate"></link><published>2017-03-03T12:08:00+08:00</published><updated>2017-03-03T12:08:00+08:00</updated><author><name>40423129</name></author><id>tag:,2017-03-03:./xie-tong-chan-pin-she-ji-shi-xi-w1zuo-ye-lian-gan-hui-zhi.html</id><summary type="html">&lt;p&gt;連桿繪製&lt;/p&gt;
+
 
 &lt;iframe src="./../data/fourbar.html"width="800"height="600"/&gt;&lt;/iframe&gt;
 
+&lt;h1&gt;四連桿繪製&lt;/h1&gt;
 &lt;iframe src="https://player.vimeo.com/video/206681186" width="640" height="326" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
 
-&lt;p&gt;&lt;a href="https://vimeo.com/206681186"&gt;四連桿繪製&lt;/a&gt; from &lt;a href="https://vimeo.com/user46455588"&gt;juu hong cheng&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;</summary><category term="簡報"></category></entry></feed>
+&lt;p&gt;&lt;a href="https://vimeo.com/206681186"&gt;虎尾科大 四設二甲 40423129 四連桿繪製&lt;/a&gt; from &lt;a href="https://vimeo.com/user46455588"&gt;juu hong cheng&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;</summary><category term="簡報"></category></entry></feed>

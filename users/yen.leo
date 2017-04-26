@@ -58,10 +58,13 @@
 <v t="leo.20170312161113.1"><vh>@edit 20170303.md</vh></v>
 <v t="leo.20170312161056.1"><vh>@edit 20170308.md</vh></v>
 <v t="leo.20170312161105.1"><vh>@edit 20170311.md</vh></v>
+<v t="leo.20170427000256.1"><vh>@edit 20170323-1.md</vh></v>
+<v t="leo.20170427000435.1"><vh>@edit 20170330.md</vh></v>
+<v t="leo.20170427002405.1"><vh>@edit 20170419.md</vh></v>
 </v>
 </v>
 </v>
-<v t="amd.20160106094754.1"><vh>@path ./../content/pages</vh>
+<v t="amd.20160106094754.1" a="E"><vh>@path ./../content/pages</vh>
 <v t="amd.20160106094829.1" a="E"><vh>yen 所寫的 pages 文章</vh>
 <v t="amd.20160106094844.1"><vh>@edit pages_1.md</vh></v>
 </v>
