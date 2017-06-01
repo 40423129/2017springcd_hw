@@ -19,22 +19,22 @@
 <v t="leo.20151213085727.1"><vh>@button pelican-blog</vh></v>
 <v t="leo.20161124144859.1"><vh>@button https server</vh></v>
 </v>
-<v t="amd.20151215180106.1" a="E"><vh>設定與開發</vh>
+<v t="amd.20151215180106.1"><vh>設定與開發</vh>
 <v t="amd.20151216151325.1"><vh>@edit index.html</vh></v>
 <v t="leo.20151213230723.1"><vh>Pelican 設定</vh>
 <v t="leo.20151213230957.1"><vh>文章 Date 設定</vh></v>
 <v t="leo.20151213230729.1"><vh>使用 summary plugin</vh></v>
 </v>
 <v t="amd.20151215170117.1"><vh>以下 pelicanconf.py 為近端與遠端的共同設定</vh></v>
-<v t="leo.20151212173725.1"><vh>@edit pelicanconf.py</vh></v>
 <v t="amd.20151215170221.1"><vh>以下 local_publishconf.py 為近端所使用的設定</vh></v>
 <v t="leo.20151213085752.1"><vh>@edit local_publishconf.py</vh></v>
+<v t="leo.20151212173725.1"><vh>@edit pelicanconf.py</vh></v>
 <v t="amd.20151215121740.1"><vh>@path theme</vh>
-<v t="amd.20151215154950.1" a="E"><vh>@path pelican-bootstrap3_local</vh>
-<v t="amd.20151215154950.2" a="E"><vh>@path templates</vh>
+<v t="amd.20151215154950.1"><vh>@path pelican-bootstrap3_local</vh>
+<v t="amd.20151215154950.2"><vh>@path templates</vh>
 <v t="amd.20151215154950.3"><vh>@edit base.html</vh></v>
 <v t="amd.20151215154950.4"><vh>@edit search.html</vh></v>
-<v t="amd.20151215162536.1" a="E"><vh>@path includes</vh>
+<v t="amd.20151215162536.1"><vh>@path includes</vh>
 <v t="amd.20151215162510.1"><vh>@edit sidebar.html</vh></v>
 </v>
 <v t="amd.20151215154950.5"><vh>@edit tags.html</vh></v>
@@ -43,7 +43,7 @@
 </v>
 <v t="amd.20151215170326.1"><vh>以下在修改或查驗 plugin 目錄下的檔案</vh></v>
 <v t="amd.20151215154225.1"><vh>@path plugin</vh>
-<v t="amd.20151215154238.1" a="E"><vh>@path tipue_search</vh>
+<v t="amd.20151215154238.1"><vh>@path tipue_search</vh>
 <v t="amd.20151215154248.1"><vh>@edit tipue_search.py</vh></v>
 </v>
 </v>
@@ -62,11 +62,12 @@
 <v t="leo.20170427000435.1"><vh>@edit 20170330.md</vh></v>
 <v t="leo.20170427002405.1"><vh>@edit 20170419.md</vh></v>
 <v t="leo.20170511093732.1"><vh>@edit 20170511.md</vh></v>
+<v t="leo.20170601090016.1"><vh>@edit 20170601.md</vh></v>
 </v>
 </v>
 </v>
-<v t="amd.20160106094754.1" a="E"><vh>@path ./../content/pages</vh>
-<v t="amd.20160106094829.1" a="E"><vh>yen 所寫的 pages 文章</vh>
+<v t="amd.20160106094754.1"><vh>@path ./../content/pages</vh>
+<v t="amd.20160106094829.1"><vh>yen 所寫的 pages 文章</vh>
 <v t="amd.20160106094844.1"><vh>@edit pages_1.md</vh></v>
 </v>
 </v>
